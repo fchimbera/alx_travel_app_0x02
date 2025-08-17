@@ -13,6 +13,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import environ
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+CHAPA_SECRET_KEY = os.getenv('CHAPA_SECRET_KEY')
+
+
 
 env = environ.Env()
 
@@ -29,9 +35,9 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = 'django-insecure-=#!kdu5vk1^^et(_=6zfs7wwgsw29&r-2!j1-rr&x47(isfdyf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition

@@ -6,6 +6,8 @@ from .views import (
     BookingRetrieveUpdateDestroy,
     ReviewListCreate,
     ReviewRetrieveUpdateDestroy,
+    InitiatePayment,  # New import
+    VerifyPayment,    # New import
 )
 
 urlpatterns = [
@@ -15,4 +17,6 @@ urlpatterns = [
     path('bookings/<int:booking_id>/', BookingRetrieveUpdateDestroy.as_view(), name='booking-detail'),
     path('reviews/', ReviewListCreate.as_view(), name='review-list'),
     path('reviews/<int:listing_id>/', ReviewRetrieveUpdateDestroy.as_view(), name='review-detail'),
+    path('payments/initiate/<int:booking_id>/', InitiatePayment.as_view(), name='initiate-payment'),
+    path('payments/verify/<int:booking_id>/', VerifyPayment.as_view(), name='verify-payment'),
 ]
